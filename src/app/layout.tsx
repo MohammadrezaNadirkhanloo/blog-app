@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl" data-theme="light">
       <body className={`${vazirFont.variable} font-sans min-h-screen `}>
-        {children}
+      <div className="container xl:max-w-screen-xl"> {children}</div>
       </body>
     </html>
   );
