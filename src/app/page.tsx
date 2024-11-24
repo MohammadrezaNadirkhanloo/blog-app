@@ -1,3 +1,4 @@
 export default function Page() {
-    return <h1>سلام</h1>
+    return <button className="btn btn-primary dark:btn-secondary">Primary</button>
+
   }
