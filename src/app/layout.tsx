@@ -18,8 +18,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fa" dir="rtl" data-theme="light">
+    <html lang="fa" dir="rtl" data-theme="dark">
       <body className={`${vazirFont.variable} font-sans min-h-screen `}>
+        <div>header</div>
       <div className="container xl:max-w-screen-xl"> {children}</div>
       </body>
     </html>
