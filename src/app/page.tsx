@@ -20,12 +20,12 @@ export default function Page() {
           کنی!
         </p>
         <div className="flex justify-center gap-x-8 w-full mt-10">
-          <Link href="/blogs" passHref>
-            <Button variant="neutral">مطالعه بلاگ ها</Button>
-          </Link>
-          <Link href="/profile" passHref>
-            <Button variant="primary">مدیریت بلاگ ها</Button>
-          </Link>
+          <Button variant="neutral">
+            <Link href="/blogs">مطالعه بلاگ ها</Link>
+          </Button>
+          <Button variant="primary">
+            <Link href="/profile">مدیریت بلاگ ها</Link>
+          </Button>
         </div>
       </div>
     </div>

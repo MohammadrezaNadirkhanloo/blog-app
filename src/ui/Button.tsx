@@ -22,14 +22,12 @@ const btnType: btnType = {
 
 function Button({
   children,
-  onClick,
   variant = "primary",
   className,
   ...rest
 }: Props) {
   return (
     <button
-      onClick={onClick}
       className={`btn ${btnType[variant]} ${className}`}
       {...rest}
     >

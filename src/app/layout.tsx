@@ -1,7 +1,7 @@
 import vazirFont from "@/constants/localFonts";
 import type { Metadata } from "next";
-import "@/styles/globals.css"
-
+import "@/styles/globals.css";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   // title: "بلاگ اپ",
@@ -20,8 +20,10 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl" data-theme="dark">
       <body className={`${vazirFont.variable} font-sans min-h-screen `}>
-        <div>header</div>
-      <div className="container xl:max-w-screen-xl"> {children}</div>
+        <div>
+          <Header />
+        </div>
+        <div className="container xl:max-w-screen-xl"> {children}</div>
       </body>
     </html>
   );
