@@ -6,8 +6,8 @@ import Header from "@/components/Header";
 export const metadata: Metadata = {
   // title: "بلاگ اپ",
   title: {
-    template: "%s | بلااگ اپ",
-    default: "بلاگ اپ", // a default is required when creating a template
+    template: "%s | بلااگ بایت",
+    default: "بلاگ بایت", // a default is required when creating a template
   },
   description: "وب اپلیکیشن مدیریت بلاگ ها و نظرات کاربران",
 };
@@ -20,10 +20,10 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl" data-theme="dark">
       <body className={`${vazirFont.variable} font-sans min-h-screen `}>
-        <div>
+        <div dir="ltr">
           <Header />
         </div>
-        <div className="container xl:max-w-screen-xl"> {children}</div>
+        <div className="container"> {children}</div>
       </body>
     </html>
   );

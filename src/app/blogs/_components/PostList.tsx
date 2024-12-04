@@ -12,7 +12,6 @@ async function PostList() {
     data: { posts },
   }: PostsResponse = await res.json();
 
-  console.log(posts);
   
 
   return posts.length > 0 ? (
