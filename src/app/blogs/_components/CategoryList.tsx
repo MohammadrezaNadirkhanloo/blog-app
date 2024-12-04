@@ -1,7 +1,6 @@
-import Link from "next/link";
+import NavLink from "@/components/NavLink";
 
 async function CategoryList() {
-
   type Category = { _id: string; title: string; slug: string };
   type CategoriesResponse = { data: { categories: Category[] } };
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/category/list`);
@@ -10,14 +9,16 @@ async function CategoryList() {
   }: CategoriesResponse = await res.json();
 
   return (
-    <ul className="space-y-4">
-      <Link href="/blogs">همه</Link>
+    <ul className="space-y-4 menu bg-base-200 rounded-box text-lg sticky top-2">
+      <li>
+        <NavLink path="/blogs">همه</NavLink>
+      </li>
       {categories.map((category: Category) => {
         return (
           <li key={category._id}>
-            <Link href={`/blogs/category/${category.slug}`}>
+            <NavLink path={`/blogs/category/${category.slug}`}>
               {category.title}
-            </Link>
+            </NavLink>
           </li>
         );
       })}
