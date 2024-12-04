@@ -15,7 +15,7 @@ function NavLink({ path, children, classStyle }: Props) {
   return (
     <Link
       className={`block py-2 hover:text-secondary-900 transition-all ease-out
-        ${pathname === path ? "text-primary" : ""}
+        ${pathname === path ? "text-primary bg-base-100" : ""}
         ${classStyle}
       `}
       href={path}
