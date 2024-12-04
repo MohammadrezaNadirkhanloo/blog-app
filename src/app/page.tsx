@@ -10,10 +10,9 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="container">
       <div className="grid grid-cols-3">
         <div className="col-span-3 lg:col-span-2">
-          <h1 className="font-bold text-start text-3xl md:text-5xl text-secondary-800 my-20">
+          <h1 className="font-bold text-start text-3xl md:text-5xl text-secondary-800 mb-20">
             به <strong className="text-primary">بلاگ بایت</strong> خوش آمدید!
           </h1>
 
@@ -48,9 +47,8 @@ export default function Page() {
           </div>
         </div>
         <div className="col-span-3 lg:col-span-1 flex items-center justify-center">
-          <Image src={imghome} alt="image home page" className="mt-14" />
+          <Image src={imghome} alt="image home page" className="mt-14 lg:mt-0" />
         </div>
       </div>
-    </div>
   );
 }
