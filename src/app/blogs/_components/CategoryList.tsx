@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 async function CategoryList() {
-    await new Promise((res) => setTimeout(() => res(), 4000));
 
   type Category = { _id: string; title: string; slug: string };
   type CategoriesResponse = { data: { categories: Category[] } };
