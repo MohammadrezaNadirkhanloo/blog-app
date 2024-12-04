@@ -12,24 +12,18 @@ async function PostList() {
     data: { posts },
   }: PostsResponse = await res.json();
 
-  
-
   return posts.length > 0 ? (
     <div className="grid grid-cols-12 gap-8">
       {posts.map((post) => (
         <div
           key={post._id}
-          className="col-span-12 sm:col-span-6 lg:col-span-4 border border-secondary-300 p-2 rounded-lg"
+          className="card bg-base-200  shadow-xl col-span-12 sm:col-span-6 lg:col-span-4"
         >
           <CoverImage {...post} />
-          {/* post content */}
-          <div>
+          <div className="card-body">
             <Link href={`/blogs/${post.slug}`}>
-              <h2 className="mb-4 font-bold text-secondary-700 hover:text-primary-900 transition-all ease-out">
-                {post.title}
-              </h2>
+              <h2 className="card-title"> {post.title}</h2>
             </Link>
-
             {/* post author - readingTime */}
             <div className="flex items-center justify-between mb-4">
               <Author {...post.author} />
@@ -40,7 +34,9 @@ async function PostList() {
                 <span>دقیقه</span>
               </div>
             </div>
-            <PostInteraction {...post} />
+            <div className="card-actions justify-end">
+              <PostInteraction {...post} />
+            </div>
           </div>
         </div>
       ))}

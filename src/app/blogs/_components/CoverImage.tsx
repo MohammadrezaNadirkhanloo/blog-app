@@ -6,7 +6,7 @@ import { Post } from "@/utils/types";
 function CoverImage({ title, coverImageUrl, slug }: Post) {
   return (
     <Link href={`/blogs/${slug}`}>
-      <div className="relative aspect-video overflow-hidden rounded-md mb-6">
+      <div className="relative aspect-video overflow-hidden rounded-xl">
         <Image
           src={coverImageUrl}
           alt={title}
