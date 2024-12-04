@@ -1,8 +1,8 @@
+import { Post } from "@/utils/types";
 import { ClockIcon } from "@heroicons/react/16/solid";
 import Link from "next/link";
-import CoverImage from "./CoverImage";
 import Author from "./Author";
-import { Post } from "@/utils/types";
+import CoverImage from "./CoverImage";
 import PostInteraction from "./PostInteraction";
 
 async function PostList() {
@@ -17,7 +17,7 @@ async function PostList() {
       {posts.map((post) => (
         <div
           key={post._id}
-          className="card bg-base-200  shadow-xl col-span-12 sm:col-span-6 lg:col-span-4"
+          className="card bg-base-200 shadow-xl col-span-12 sm:col-span-6 lg:col-span-4"
         >
           <CoverImage {...post} />
           <div className="card-body">
@@ -25,7 +25,7 @@ async function PostList() {
               <h2 className="card-title"> {post.title}</h2>
             </Link>
             {/* post author - readingTime */}
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between my-4">
               <Author {...post.author} />
               <div className="flex items-center text-[10px] text-secondary-500">
                 <ClockIcon className="w-4 h-4 stroke-secondary-500 ml-1" />

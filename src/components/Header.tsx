@@ -27,11 +27,11 @@ const Header: React.FC = () => {
               <li>
                 {user ? (
                   <NavLink path="/profile" classStyle="text-lg font-semibold">
-                    Profile
+                    پروفایل
                   </NavLink>
                 ) : (
                   <NavLink path="/signin" classStyle="text-lg font-semibold">
-                    Login
+                    ورود
                   </NavLink>
                 )}
               </li>
