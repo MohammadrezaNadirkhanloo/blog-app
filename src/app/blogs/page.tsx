@@ -11,9 +11,8 @@ async function BlogPage() {
         obcaecati maxime molestias quos dicta veritatis fugiat voluptate
         ratione, ullam eius voluptatum corporis saepe libero.
       </p>
-      <Suspense fallback={<Loading/>}>
-
-      <PostList />
+      <Suspense fallback={<Loading />}>
+        <PostList />
       </Suspense>
     </>
   );
