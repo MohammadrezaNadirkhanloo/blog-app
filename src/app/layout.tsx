@@ -23,7 +23,7 @@ export default function RootLayout({
         <div dir="ltr">
           <Header />
         </div>
-        <div className="container"> {children}</div>
+        <div className=""> {children}</div>
       </body>
     </html>
   );

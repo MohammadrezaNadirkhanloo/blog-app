@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div>
-      <h1>لیست بلاگ ها</h1>
+      
       <div className="grid grid-cols-12">
         <div className="col-span-2">
           <Suspense fallback={<Spinner />}>
