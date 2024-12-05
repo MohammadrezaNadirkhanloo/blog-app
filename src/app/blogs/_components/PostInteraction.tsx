@@ -2,20 +2,16 @@
 
 import ButtonIcon from "@/ui/ButtonIcon";
 import { toPersianDigits } from "@/utils/numberFormatter";
+import { CiBookmark } from "react-icons/ci";
+import { FaBookmark } from "react-icons/fa";
+import { GoHeart, GoHeartFill } from "react-icons/go";
+import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
+
 // import { bookmarkPostApi, likePostApi } from "@/services/postServices";
 // import ButtonIcon from "@/ui/ButtonIcon";
 // import { toPersianDigits } from "@/utils/numberFormatter";
 import { Post } from "@/utils/types";
-import {
-  BookmarkIcon,
-  ChatBubbleOvalLeftEllipsisIcon,
-  HeartIcon,
-} from "@heroicons/react/24/outline";
 
-import {
-  HeartIcon as SolidHeartIcon,
-  BookmarkIcon as SolidBookmarkIcon,
-} from "@heroicons/react/24/solid";
 // import { useRouter } from "next/navigation";
 
 // import toast from "react-hot-toast";
@@ -46,20 +42,20 @@ function PostInteraction({ commentsCount, _id, isLiked, isBookmarked }: Post) {
   return (
     <div className="flex items-center gap-x-4">
       <ButtonIcon variant="secondary">
-        <ChatBubbleOvalLeftEllipsisIcon />
+        <IoChatbubbleEllipsesOutline />
         <span>{toPersianDigits(commentsCount)}</span>
       </ButtonIcon>
       <ButtonIcon
         variant="red"
         className="btn-circle absolute top-0 start-0 m-2 border-0"
       >
-        {isLiked ? <SolidHeartIcon /> : <HeartIcon />}
+        {isLiked ? <GoHeartFill /> : <GoHeart />}
       </ButtonIcon>
       <ButtonIcon
         variant="primary"
         className="btn-circle absolute top-0 end-0 m-2 border-0"
       >
-        {isBookmarked ? <SolidBookmarkIcon /> : <BookmarkIcon />}
+        {isBookmarked ? <FaBookmark /> : <CiBookmark />}
       </ButtonIcon>
     </div>
   );

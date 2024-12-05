@@ -1,5 +1,5 @@
 import { Post } from "@/utils/types";
-import { ClockIcon } from "@heroicons/react/16/solid";
+import { RxLapTimer } from "react-icons/rx";
 import Link from "next/link";
 import Author from "./Author";
 import CoverImage from "./CoverImage";
@@ -28,7 +28,7 @@ async function PostList() {
             <div className="flex items-center justify-between my-4">
               <Author {...post.author} />
               <div className="flex items-center text-[10px] text-secondary-500">
-                <ClockIcon className="w-4 h-4 stroke-secondary-500 ml-1" />
+                <RxLapTimer className="w-4 h-4 stroke-secondary-500 ml-1" />
                 <span className="ml-1"> خواندن:</span>
                 <span className="ml-1 leading-3">{post.readingTime}</span>
                 <span>دقیقه</span>
