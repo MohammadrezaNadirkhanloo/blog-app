@@ -21,7 +21,6 @@ import {
 // import toast from "react-hot-toast";
 
 function PostInteraction({ commentsCount, _id, isLiked, isBookmarked }: Post) {
-  
   // const router = useRouter();
 
   // const likeHandler = async (postId) => {
@@ -50,10 +49,16 @@ function PostInteraction({ commentsCount, _id, isLiked, isBookmarked }: Post) {
         <ChatBubbleOvalLeftEllipsisIcon />
         <span>{toPersianDigits(commentsCount)}</span>
       </ButtonIcon>
-      <ButtonIcon variant="red" >
+      <ButtonIcon
+        variant="red"
+        className="btn-circle absolute top-0 start-0 m-2 border-0"
+      >
         {isLiked ? <SolidHeartIcon /> : <HeartIcon />}
       </ButtonIcon>
-      <ButtonIcon variant="primary" >
+      <ButtonIcon
+        variant="primary"
+        className="btn-circle absolute top-0 end-0 m-2 border-0"
+      >
         {isBookmarked ? <SolidBookmarkIcon /> : <BookmarkIcon />}
       </ButtonIcon>
     </div>

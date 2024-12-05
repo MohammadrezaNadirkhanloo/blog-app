@@ -13,26 +13,23 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const btnType: btnType = {
-  primary:
-    "bg-blue-100 text-primary hover:bg-blue-500 hover:text-white",
+  primary: "bg-gray-200 text-primary hover:bg-base-300 ",
   secondary:
-    "bg-gray-200  text-gray-500 hover:bg-gray-300 hover:text-secondary-0",
-  outline:
-    "border border-secondary-200 text-secondary-500 hover:bg-secondary-200",
+    "btn-block rounded-b-2xl rounded-t-none no-animation border-0 border-t-2 border-gray-500",
+  outline: " text-secondary-500 hover:bg-secondary-200",
   red: "bg-red-100  text-red-500 hover:bg-red-500 hover:text-white",
-  danger: "border border-red-100 text-red-500",
+  danger: " text-red-500",
 };
 
-function ButtonIcon({ children, onClick, className, variant, ...rest } :Props) {
+function ButtonIcon({ children, onClick, className, variant, ...rest }: Props) {
   return (
     <button
       onClick={onClick}
       className={`
         ${btnType[variant]}
-        ${className} flex items-center justify-center gap-x-1 rounded-md p-1
+        ${className} btn
         [&>svg]:w-6  [&>svg]:h-6 [&>svg]:text-inherit
-        text-xs lg:text-xl
-        transition-all duration-300 ease-out"`}
+        text-xs lg:text-xl"`}
       {...rest}
     >
       {children}

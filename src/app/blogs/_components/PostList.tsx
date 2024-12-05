@@ -17,10 +17,10 @@ async function PostList() {
       {posts.map((post) => (
         <div
           key={post._id}
-          className="card bg-base-200 shadow-xl col-span-12 sm:col-span-6 lg:col-span-4"
+          className="card bg-base-200 shadow-xl col-span-12 sm:col-span-6 lg:col-span-4 relative"
         >
           <CoverImage {...post} />
-          <div className="card-body">
+          <div className="card-body pb-2">
             <Link href={`/blogs/${post.slug}`}>
               <h2 className="card-title"> {post.title}</h2>
             </Link>
@@ -34,10 +34,8 @@ async function PostList() {
                 <span>دقیقه</span>
               </div>
             </div>
-            <div className="card-actions justify-end">
-              <PostInteraction {...post} />
-            </div>
           </div>
+              <PostInteraction {...post} />
         </div>
       ))}
     </div>
