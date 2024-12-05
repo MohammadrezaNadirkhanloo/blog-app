@@ -1,7 +1,8 @@
 import { getPostBySlug } from "@/services/postService";
 import Image from "next/image";
-import NotFound from "./not-found";
+import { notFound } from "next/navigation";
 
+// Metadata
 export async function generateMetadata({
   params,
 }: {
@@ -19,9 +20,9 @@ async function SinglePost({
   params: Promise<{ postSlug: string }>;
 }) {
   const post = await getPostBySlug((await params).postSlug);
-  if (!post) {
-    return <NotFound />;
-  }
+
+  if (!post) notFound();
+
   return (
     <div className="text-secondary-600 max-w-screen-md mx-auto">
       <h1 className="text-secondary-700 text-2xl font-bold mb-8">
