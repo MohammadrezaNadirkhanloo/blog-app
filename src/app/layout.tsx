@@ -19,8 +19,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa" dir="rtl" data-theme="dark">
-      <body className={`${vazirFont.variable} font-sans min-h-screen `}>
-        <div dir="ltr">
+      <body className={`${vazirFont.variable} font-sans min-h-screen`}>
+        <div>
           <Header />
         </div>
         <div className="container mt-14"> {children}</div>

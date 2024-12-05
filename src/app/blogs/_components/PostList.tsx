@@ -13,11 +13,11 @@ async function PostList() {
   }: PostsResponse = await res.json();
 
   return posts.length > 0 ? (
-    <div className="grid grid-cols-12 gap-8">
+    <div className="grid grid-cols-12 gap-y-8 sm:gap-x-8 ">
       {posts.map((post) => (
         <div
           key={post._id}
-          className="card bg-base-200 shadow-xl col-span-12 sm:col-span-6 lg:col-span-4 relative"
+          className="card bg-base-200 shadow-xl dark:shadow-sm dark:shadow-primary  col-span-12 sm:col-span-6 lg:col-span-4 relative"
         >
           <CoverImage {...post} />
           <div className="card-body pb-2">
@@ -35,7 +35,7 @@ async function PostList() {
               </div>
             </div>
           </div>
-              <PostInteraction {...post} />
+          <PostInteraction {...post} />
         </div>
       ))}
     </div>
