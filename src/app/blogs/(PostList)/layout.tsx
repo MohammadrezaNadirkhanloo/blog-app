@@ -1,7 +1,7 @@
 import Spinner from "@/components/Spinner";
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import CategoryList from "./_components/CategoryList";
+import CategoryList from "../_components/CategoryList";
 
 export const metadata: Metadata = {
   title: "بلاگ  - وب اپلیکیشن مدیریت بلاگ",

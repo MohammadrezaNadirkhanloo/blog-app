@@ -9,7 +9,7 @@ interface Props {
   classStyle?: string;
 }
 
-function NavLink({ path, children, classStyle }: Props) {
+const NavLink: React.FC<Props> = ({ path, children, classStyle }) => {
   const pathname = usePathname();
 
   return (
@@ -23,6 +23,6 @@ function NavLink({ path, children, classStyle }: Props) {
       {children}
     </Link>
   );
-}
+};
 
 export default NavLink;

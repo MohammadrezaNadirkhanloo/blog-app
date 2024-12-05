@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 export const metadata: Metadata = {
   // title: "بلاگ اپ",
   title: {
-    template: "%s | بلااگ بایت",
+    template: "%s | بلاگ بایت",
     default: "بلاگ بایت", // a default is required when creating a template
   },
   description: "وب اپلیکیشن مدیریت بلاگ ها و نظرات کاربران",

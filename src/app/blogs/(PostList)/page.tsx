@@ -1,6 +1,7 @@
 import { Suspense } from "react";
-import PostList from "./_components/PostList";
-import Loading from "./loading";
+import Loading from "../loading";
+import PostList from "../_components/PostList";
+
 
 async function BlogPage() {
   return (
