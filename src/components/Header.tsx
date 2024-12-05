@@ -1,6 +1,8 @@
 import CategoryList from "@/app/blogs/_components/CategoryList";
 import Link from "next/link";
 import NavLink from "./NavLink";
+import { CgMenuLeft } from "react-icons/cg";
+import { IoCloseSharp } from "react-icons/io5";
 
 const Header: React.FC = () => {
   const user = false;
@@ -31,9 +33,9 @@ const Header: React.FC = () => {
                     {/* Page content here */}
                     <label
                       htmlFor="my-drawer"
-                      className="btn btn-primary drawer-button"
+                      className="btn btn-active btn-circle  drawer-button"
                     >
-                      Open drawer
+                      <CgMenuLeft size={25} />
                     </label>
                   </div>
                   <div className="drawer-side z-20">
@@ -42,8 +44,18 @@ const Header: React.FC = () => {
                       aria-label="close sidebar"
                       className="drawer-overlay"
                     ></label>
+
                     <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
                       {/* Sidebar content here */}
+                      <li className="items-end">
+                        <label
+                          htmlFor="my-drawer"
+                          aria-label="close sidebar"
+                          className=" drawer-overlay "
+                        >
+                          <IoCloseSharp size={20} />
+                        </label>
+                      </li>
                       <CategoryList />
                     </ul>
                   </div>
