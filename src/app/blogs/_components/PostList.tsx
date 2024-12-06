@@ -1,16 +1,12 @@
-import { Post } from "@/utils/types";
-import { RxLapTimer } from "react-icons/rx";
+import { getPosts } from "@/services/postService";
 import Link from "next/link";
+import { RxLapTimer } from "react-icons/rx";
 import Author from "./Author";
 import CoverImage from "./CoverImage";
 import PostInteraction from "./PostInteraction";
 
 async function PostList() {
-  type PostsResponse = { data: { posts: Post[] } };
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/post/list`);
-  const {
-    data: { posts },
-  }: PostsResponse = await res.json();
+  const posts = await getPosts();
 
   return posts.length > 0 ? (
     <div className="grid grid-cols-12 gap-y-8 sm:gap-x-8 ">
