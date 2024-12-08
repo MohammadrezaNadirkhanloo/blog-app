@@ -23,6 +23,7 @@ const Header: React.FC = () => {
           <ul className="menu menu-horizontal px-1 ">
             <div className="flex items-center gap-x-10">
               <div className="lg:hidden">
+                {/* TODO: custom style drawer */}
                 <div className="drawer">
                   <input
                     id="my-drawer"
@@ -88,3 +89,5 @@ const Header: React.FC = () => {
   );
 };
 export default Header;
+
+

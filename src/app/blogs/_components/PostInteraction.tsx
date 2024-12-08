@@ -39,6 +39,7 @@ function PostInteraction({ commentsCount, _id, isLiked, isBookmarked }: Post) {
   //   }
   // };
 
+  // TODO : responsive size icon
   return (
     <div className="flex items-center gap-x-4">
       <ButtonIcon variant="secondary">
