@@ -23,3 +23,10 @@ body {
   min-height: 100vh;
   user-select: none;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 0s 600000s, color 0s 600000s !important;
+}
