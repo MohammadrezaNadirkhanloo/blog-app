@@ -29,7 +29,7 @@ function ButtonIcon({ children, onClick, className, variant, ...rest }: Props) {
         ${btnType[variant]}
         ${className} btn
         [&>svg]:w-6  [&>svg]:h-6 [&>svg]:text-inherit
-        text-xs lg:text-xl"`}
+        text-xl"`}
       {...rest}
     >
       {children}

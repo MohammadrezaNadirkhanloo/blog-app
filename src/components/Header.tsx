@@ -1,8 +1,9 @@
 import CategoryList from "@/app/blogs/_components/CategoryList";
 import Link from "next/link";
-import NavLink from "./NavLink";
+import { BsMoonStars } from "react-icons/bs";
 import { CgMenuLeft } from "react-icons/cg";
 import { IoCloseSharp } from "react-icons/io5";
+import NavLink from "./NavLink";
 
 const Header: React.FC = () => {
   const user = false;
@@ -23,7 +24,6 @@ const Header: React.FC = () => {
           <ul className="menu menu-horizontal px-1 ">
             <div className="flex items-center gap-x-10">
               <div className="lg:hidden">
-                {/* TODO: custom style drawer */}
                 <div className="drawer">
                   <input
                     id="my-drawer"
@@ -48,16 +48,54 @@ const Header: React.FC = () => {
 
                     <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
                       {/* Sidebar content here */}
-                      <li className="items-end">
-                        <label
-                          htmlFor="my-drawer"
-                          aria-label="close sidebar"
-                          className=" drawer-overlay "
-                        >
-                          <IoCloseSharp size={20} />
-                        </label>
-                      </li>
-                      <CategoryList />
+                      <div className="flex-1">
+                        <li className="items-end">
+                          <label
+                            htmlFor="my-drawer"
+                            aria-label="close sidebar"
+                            className=" drawer-overlay "
+                          >
+                            <IoCloseSharp size={20} />
+                          </label>
+                        </li>
+                        <CategoryList />
+                      </div>
+                      <div>
+                        <div>
+                          <div className="flex items-center justify-between  ">
+                            <div className={` flex items-center gap-x-3`}>
+                              <BsMoonStars className="w-5 h-5" />
+                              <p className="text-lg font-medium truncate ">
+                                حالت تاریک
+                              </p>
+                            </div>
+                            <input
+                              type="checkbox"
+                              // checked={isDarkMode}
+                              className={`toggle theme-controller col-span-2 col-start-1 row-start-1 checked:border-blue-800 checked:bg-blue-700 checked:[--tglbg:theme(colors.primary)]`}
+                              // onChange={toggleDarkMode}
+                            />{" "}
+                          </div>
+                        </div>
+                        <hr className="h-px my-6 bg-gray-200 border-0 dark:bg-gray-700" />
+                        <li>
+                          {user ? (
+                            <NavLink
+                              path="/profile"
+                              classStyle="btn btn-active shadow-lg rounded-full px-5 lg:px-8 text-lg font-semibold"
+                            >
+                              پروفایل
+                            </NavLink>
+                          ) : (
+                            <NavLink
+                              path="/signin"
+                              classStyle="btn btn-active shadow-lg rounded-full px-5 lg:px-8 text-lg font-semibold"
+                            >
+                              ورود / ثبت‌نام
+                            </NavLink>
+                          )}
+                        </li>
+                      </div>
                     </ul>
                   </div>
                 </div>
@@ -89,5 +127,3 @@ const Header: React.FC = () => {
   );
 };
 export default Header;
-
-
