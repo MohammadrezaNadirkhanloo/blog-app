@@ -1,7 +1,8 @@
-import vazirFont from "@/constants/localFonts";
-import type { Metadata } from "next";
-import "@/styles/globals.css";
 import Header from "@/components/Header";
+import vazirFont from "@/constants/localFonts";
+import "@/styles/globals.css";
+import type { Metadata } from "next";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   // title: "بلاگ اپ",
@@ -20,6 +21,7 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl" data-theme="dark">
       <body className={`${vazirFont.variable} font-sans min-h-screen`}>
+        <Toaster  />
         <div>
           <Header />
         </div>
