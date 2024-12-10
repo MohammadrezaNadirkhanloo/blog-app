@@ -7,6 +7,9 @@ import * as yup from "yup";
 // import { useAuth } from "@/context/AuthContext";
 import RHFTextField from "@/components/RHFTextField";
 import Spinner from "@/components/Spinner";
+import { signupApi } from "@/services/authService";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const schema = yup
   .object({
@@ -31,14 +34,31 @@ function Signup() {
   });
 
   //   const { signup } = useAuth();
-  const onSubmit = async (values: object) => {
-    // await signup();
-    console.log(values);
+
+  interface SignupValues {
+    name: string;
+    email: string;
+    password: string;
+  }
+
+  const onSubmit = async (values: SignupValues) => {
+    try {
+      const { user, message } = await signupApi(values);
+      toast.success(message);
+      console.log(user, message);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        toast.error(error.response?.data?.message);
+        console.log(error.response?.data?.message);
+      } else {
+        console.log("An unexpected error occurred:", error);
+      }
+    }
   };
 
   return (
-    <div>
-      <h1 className="text-xl font-bold text-secondary-500 text-center mb-6">
+    <>
+      <h1 className="text-2xl font-bold text-secondary-500 text-center mb-8">
         به بلاگ بایت خوش آمدید
       </h1>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
@@ -70,16 +90,26 @@ function Signup() {
           {isLoading ? (
             <Spinner />
           ) : (
-            <Button type="submit" variant="primary" className="w-full">
-              تایید
+            <Button
+              type="submit"
+              variant="primary"
+              className="w-full lg:text-lg"
+            >
+              ثبت‌نام
             </Button>
           )}
         </div>
       </form>
-      <Link href="/signin" className="text-secondary-500 mt-6 text-center">
-        ورود
-      </Link>
-    </div>
+      <div className="flex items-start justify-center mt-8 gap-x-1">
+        <p>قبلا عضو شده‌اید؟</p>
+        <Link
+          href="/signin"
+          className="underline decoration-primary decoration-wavy underline-offset-4"
+        >
+          رفتن به صفحه ورود
+        </Link>
+      </div>
+    </>
   );
 }
 export default Signup;
