@@ -8,7 +8,9 @@ async function CategoryList() {
     description: string;
   };
   type CategoriesResponse = { data: { categories: Category[] } };
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/category/list`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/category/list`, {
+    cache: "force-cache",
+  });
   const {
     data: { categories },
   }: CategoriesResponse = await res.json();

@@ -13,11 +13,11 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const btnType: btnType = {
-  primary: "bg-gray-200 text-primary hover:bg-base-300 ",
-  secondary:
-    "btn-block rounded-b-2xl rounded-t-none no-animation border-0 border-t-2 border-gray-500",
+  primary:
+    " text-primary hover:bg-base-300 flex-1 rounded-none border-0 rounded-bl-2xl",
+  secondary: "flex-1 rounded-none rounded-br-2xl",
   outline: " text-secondary-500 hover:bg-secondary-200",
-  red: "bg-red-100  text-red-500 hover:bg-red-500 hover:text-white",
+  red: " text-red-500 hover:bg-base-300 flex-1 rounded-none border-0",
   danger: " text-red-500",
 };
 

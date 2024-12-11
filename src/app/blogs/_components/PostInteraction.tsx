@@ -40,21 +40,15 @@ function PostInteraction({ commentsCount, _id, isLiked, isBookmarked }: Post) {
   // };
 
   return (
-    <div className="flex items-center gap-x-4">
+    <div className="flex items-center border-gray-500 border-t-2 rounded-b-2xl rounded-t-none">
       <ButtonIcon variant="secondary">
         <IoChatbubbleEllipsesOutline />
         <span>{toPersianDigits(commentsCount)}</span>
       </ButtonIcon>
-      <ButtonIcon
-        variant="red"
-        className="btn-circle absolute top-0 start-0 m-2 border-0"
-      >
+      <ButtonIcon variant="red">
         {isLiked ? <GoHeartFill /> : <GoHeart />}
       </ButtonIcon>
-      <ButtonIcon
-        variant="primary"
-        className="btn-circle absolute top-0 end-0 m-2 border-0"
-      >
+      <ButtonIcon variant="primary">
         {isBookmarked ? <FaBookmark /> : <CiBookmark />}
       </ButtonIcon>
     </div>
