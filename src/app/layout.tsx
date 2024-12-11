@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import vazirFont from "@/constants/localFonts";
+import AuthProvider from "@/context/AuthContext";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Toaster } from "react-hot-toast";
@@ -21,11 +22,13 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl" data-theme="dark">
       <body className={`${vazirFont.variable} font-sans min-h-screen`}>
-        <Toaster  />
-        <div>
-          <Header />
-        </div>
-        <div className="container mt-14"> {children}</div>
+        <AuthProvider>
+          <Toaster />
+          <div>
+            <Header />
+          </div>
+          <div className="container mt-14"> {children}</div>
+        </AuthProvider>
       </body>
     </html>
   );

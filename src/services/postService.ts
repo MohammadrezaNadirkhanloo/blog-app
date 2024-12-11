@@ -32,3 +32,21 @@ export async function getPosts() {
 
   return posts;
 }
+
+export async function getMenuItem() {
+  type Category = {
+    _id: string;
+    title: string;
+    slug: string;
+    description: string;
+  };
+  type CategoriesResponse = { data: { categories: Category[] } };
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/category/list`, {
+    cache: "force-cache",
+  });
+  const {
+    data: { categories },
+  }: CategoriesResponse = await res.json();
+
+  return categories;
+}
