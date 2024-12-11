@@ -26,9 +26,9 @@ const RHFTextField: React.FC<Props> = ({
     <div className={`textField  `}>
       <label className="form-control">
         <div className="label">
-          <span className="label-text">
+          <span className="label-text lg:text-lg">
             {label}
-            {isRequired && <span className="text-error">*</span>}
+            {isRequired && <span className="text-error mx-1">*</span>}
           </span>
         </div>
         <input
