@@ -7,9 +7,7 @@ import * as yup from "yup";
 // import { useAuth } from "@/context/AuthContext";
 import RHFTextField from "@/components/RHFTextField";
 import Spinner from "@/components/Spinner";
-import { singinApi } from "@/services/authService";
-import axios from "axios";
-import toast from "react-hot-toast";
+import { useAuth } from "@/context/AuthContext";
 
 const schema = yup
   .object({
@@ -34,23 +32,15 @@ function Signin() {
     email: string;
     password: string;
   }
+  const { signin } = useAuth();
 
   const onSubmit = async (values: SigninValues) => {
-    try {
-      const { user, message } = await singinApi(values);
-      toast.success(message);
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        toast.error(error.response?.data?.message);
-      } else {
-        console.log("An unexpected error occurred:", error);
-      }
-    }
+    await signin(values);
   };
 
   return (
     <div>
-      <h1 className="text-xl font-bold text-secondary-500 text-center mb-6">
+      <h1 className="lg:text-2xl text-xl font-bold text-secondary-500 text-center mb-6">
         به بلاگ بایت خوش آمدید
       </h1>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
@@ -75,15 +65,24 @@ function Signin() {
           {isLoading ? (
             <Spinner />
           ) : (
-            <Button type="submit" variant="primary" className="w-full">
-              تایید
+            <Button
+              type="submit"
+              variant="primary"
+              className="w-full lg:text-lg"
+            >
+              ورود
             </Button>
           )}
         </div>
       </form>
-      <Link href="/signup" className="text-secondary-500 mt-6 text-center">
-        ثبت نام
-      </Link>
+      <div className="inline-flex items-center justify-center w-full mt-7">
+        <hr className="w-72 h-1 my-8 bg-gray-200 border-0 rounded dark:bg-gray-700" />
+        <div className="absolute px-4 -translate-x-1/2 bg-base-200 left-1/2">
+          <Link href="/signup" className="">
+            ثبت نام
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

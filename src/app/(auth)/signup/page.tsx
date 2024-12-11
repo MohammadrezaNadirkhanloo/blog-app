@@ -7,9 +7,7 @@ import * as yup from "yup";
 // import { useAuth } from "@/context/AuthContext";
 import RHFTextField from "@/components/RHFTextField";
 import Spinner from "@/components/Spinner";
-import { signupApi } from "@/services/authService";
-import axios from "axios";
-import toast from "react-hot-toast";
+import { useAuth } from "@/context/AuthContext";
 
 const schema = yup
   .object({
@@ -40,25 +38,14 @@ function Signup() {
     email: string;
     password: string;
   }
-
+  const { signup } = useAuth();
   const onSubmit = async (values: SignupValues) => {
-    try {
-      const { user, message } = await signupApi(values);
-      toast.success(message);
-      console.log(user, message);
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        toast.error(error.response?.data?.message);
-        console.log(error.response?.data?.message);
-      } else {
-        console.log("An unexpected error occurred:", error);
-      }
-    }
+    await signup(values);
   };
 
   return (
     <>
-      <h1 className="text-2xl font-bold text-secondary-500 text-center mb-8">
+      <h1 className="lg:text-2xl text-xl font-bold text-secondary-500 text-center mb-8">
         به بلاگ بایت خوش آمدید
       </h1>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
