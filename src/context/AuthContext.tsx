@@ -155,7 +155,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
       if (axios.isAxiosError(error)) {
         const errorMsg = error.response?.data?.message || "An error occurred";
         dispatch({ type: "rejected", payload: errorMsg });
-        toast(errorMsg);
+        // toast(errorMsg);
       } else {
         console.error("An unexpected error occurred:", error);
       }
