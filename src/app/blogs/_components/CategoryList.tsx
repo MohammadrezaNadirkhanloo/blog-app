@@ -16,27 +16,35 @@ async function CategoryList() {
   }: CategoriesResponse = await res.json();
 
   return (
-    <ul className="space-y-4 menu bg-base-200 rounded-box text-lg sticky top-2">
-      <li>
-        <NavLink path="/blogs">همه</NavLink>
-      </li>
-
-      {categories.map((category: Category) => {
-        return (
-          <div
-            key={category._id}
-            className="tooltip "
-            data-tip={category.description}
-          >
-            <li>
-              <NavLink path={`/blogs/category/${category.slug}`}>
-                {category.title}
-              </NavLink>
-            </li>
-          </div>
-        );
-      })}
-    </ul>
+    <div
+      tabIndex={0}
+      className="collapse collapse-arrow shadow-md bg-base-200 "
+    >
+      <input type="checkbox" />
+      <div className="collapse-title font-medium">دسته بندی مقالات</div>
+      <div className="collapse-content">
+        <ul className="space-y-4 menu text-lg ">
+          <li>
+            <NavLink path="/blogs">همه</NavLink>
+          </li>
+          {categories.map((category: Category) => {
+            return (
+              <div
+                key={category._id}
+                className="tooltip "
+                data-tip={category.description}
+              >
+                <li>
+                  <NavLink path={`/blogs/category/${category.slug}`}>
+                    {category.title}
+                  </NavLink>
+                </li>
+              </div>
+            );
+          })}
+        </ul>{" "}
+      </div>
+    </div>
   );
 }
 export default CategoryList;
