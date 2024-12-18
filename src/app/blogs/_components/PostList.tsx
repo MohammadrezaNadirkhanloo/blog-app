@@ -1,13 +1,11 @@
-import { getPosts } from "@/services/postService";
 import Link from "next/link";
 import { RxLapTimer } from "react-icons/rx";
 import Author from "./Author";
 import CoverImage from "./CoverImage";
 import PostInteraction from "./PostInteraction";
+import { Post } from "@/utils/types";
 
-async function PostList() {
-  const posts = await getPosts();
-
+async function PostList({ posts }: { posts: Post[] }) {
   return posts.length > 0 ? (
     <div className="grid grid-cols-12 gap-y-8 sm:gap-x-8 ">
       {posts.map((post) => (
@@ -16,8 +14,7 @@ async function PostList() {
           className="card bg-base-200 shadow-xl dark:shadow-sm dark:shadow-primary  col-span-12 sm:col-span-6 lg:col-span-4 static "
         >
           <div className=" ">
-
-          <CoverImage {...post} />
+            <CoverImage {...post} />
           </div>
           <div className="card-body pb-2">
             <Link href={`/blogs/${post.slug}`}>

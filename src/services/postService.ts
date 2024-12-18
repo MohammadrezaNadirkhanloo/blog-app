@@ -1,4 +1,5 @@
 import { Post } from "@/utils/types";
+import http from "./httpService";
 
 interface Postsingel {
   title: string;
@@ -25,8 +26,11 @@ export async function getPostBySlug(slug: string) {
   return post;
 }
 
-export async function getPosts() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/post/list`);
+export async function getPosts(options :object) {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/post/list`,
+    options
+  );
   const { data }: PostsResponse = await res.json();
   const posts = data?.posts || null;
 
@@ -49,4 +53,12 @@ export async function getMenuItem() {
   }: CategoriesResponse = await res.json();
 
   return categories;
+}
+
+export async function likePostApi(postId: string) {
+  return http.post(`/post/like/${postId}`).then(({ data }) => data.data);
+}
+
+export async function bookmarkPostApi(postId: string) {
+  return http.post(`/post/bookmark/${postId}`).then(({ data }) => data.data);
 }
