@@ -14,8 +14,7 @@ export default function Search() {
 
     const search = e.target.search;
     const searchValue = search.value;
-    console.log(searchValue);
-    
+
     const newParams = new URLSearchParams(searchParams.toString());
     if (searchValue) {
       newParams.set("search", searchValue);
@@ -39,8 +38,11 @@ export default function Search() {
         autoComplete="off"
         className="input input-bordered border-e-0 join-item w-full focus:outline-none"
       />
-      <button className="join-item rounded-r-full text-primary border border-gray-700 px-3" type="submit">
-      <IoSearch size={18} />
+      <button
+        className="join-item rounded-r-full text-primary border border-gray-700 px-3"
+        type="submit"
+      >
+        <IoSearch size={18} />
       </button>
     </form>
   );
