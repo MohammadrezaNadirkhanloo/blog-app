@@ -26,9 +26,9 @@ export async function getPostBySlug(slug: string) {
   return post;
 }
 
-export async function getPosts(options :object) {
+export async function getPosts(options: object, query: string) {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/post/list`,
+    `${process.env.NEXT_PUBLIC_BASE_URL}/post/list?${query}`,
     options
   );
   const { data }: PostsResponse = await res.json();

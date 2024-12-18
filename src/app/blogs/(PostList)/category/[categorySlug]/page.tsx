@@ -1,26 +1,24 @@
 import PostList from "@/app/blogs/_components/PostList";
+import { getPosts } from "@/services/postService";
 import setCookieOnReq from "@/utils/setCookieOnReq";
-import { Post } from "@/utils/types";
 import { cookies } from "next/headers";
-
-interface PostsResponse {
-  data: { posts: Post[] };
-}
+import queryString from "query-string";
 
 async function Category({
   params,
+  searchParams,
 }: {
   params: Promise<{ categorySlug: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const categorySlug = (await params).categorySlug;
+  const query =
+    queryString.stringify(await searchParams) +
+    "&" +
+    `categorySlug=${categorySlug}`;
   const cookieStore = await cookies();
   const options = setCookieOnReq(cookieStore);
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/post/list?categorySlug=${categorySlug}`,
-    options
-  );
-  const { data }: PostsResponse = await res.json();
-  const posts = data?.posts || null;
+  const posts = await getPosts(options, query);
 
   return (
     <div>
