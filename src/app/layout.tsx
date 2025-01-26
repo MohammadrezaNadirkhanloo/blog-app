@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import vazirFont from "@/constants/localFonts";
 import AuthProvider from "@/context/AuthContext";
 import "@/styles/globals.css";
@@ -24,10 +23,7 @@ export default function RootLayout({
       <body className={`${vazirFont.variable} font-sans min-h-screen`}>
         <AuthProvider>
           <Toaster />
-          <div>
-            <Header />
-          </div>
-          <div className="container mt-14"> {children}</div>
+          <div className="">{children}</div>
         </AuthProvider>
       </body>
     </html>

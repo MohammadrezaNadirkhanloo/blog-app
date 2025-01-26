@@ -2,7 +2,7 @@ import Button from "@/ui/Button";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import imghome from "../../public/images/ImageHome.svg";
+import imghome from "../../../public/images/ImageHome.svg";
 
 export const metadata: Metadata = {
   title: "خانه  - وب اپلیکیشن مدیریت بلاگ",

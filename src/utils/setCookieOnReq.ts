@@ -1,4 +1,4 @@
-export default function setCookieOnReq(cookies) {
+export default  function setCookieOnReq(cookies) {
   const accessToken = cookies.get("accessToken");
   const refreshToken = cookies.get("refreshToken");
 

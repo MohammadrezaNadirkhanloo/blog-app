@@ -2,6 +2,7 @@ import { getPostBySlug } from "@/services/postService";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import RelatedPost from "../_components/RelatedPost";
+import PostComment from "../_components/comment/PostComment";
 
 // Metadata
 export async function generateMetadata({
@@ -41,7 +42,7 @@ async function SinglePost({
         />
       </div>
       {post.related.length > 0 && <RelatedPost posts={post.related} />}
-    {/* <Comment /> */}
+      <PostComment post={post} />
     </div>
   );
 }

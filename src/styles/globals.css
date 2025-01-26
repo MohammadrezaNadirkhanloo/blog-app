@@ -30,3 +30,55 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   transition: background-color 0s 600000s, color 0s 600000s !important;
 }
+
+/* comment  indicator */
+
+.post-comments .post-comments__answer {
+  position: relative;
+}
+.post-comments .post-comments__answer::before {
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  right: -15px;
+  top: -13px;
+  width: 3px;
+  background-color: rgb(55, 65, 81);
+}
+
+.post-comments .post-comments__answer .answer-item::before {
+  content: "";
+  display: block;
+  height: 3px;
+  position: relative;
+  right: -31px;
+  top: 57px;
+  width: 15px;
+  background-color: rgb(55, 65, 81);
+  z-index: 10;
+}
+
+.post-comments .post-comments__answer .last-item:after {
+  content: "";
+  display: block;
+  height: calc(100% - 80px);
+  position: absolute;
+  right: -15px;
+  top: 76px;
+  width: 4px;
+  background-color: rgb(55, 65, 81);
+}
+
+@media (max-width: 640px) {
+  .post-comments .post-comments__answer::before {
+    display: none;
+  }
+  .post-comments .post-comments__answer .answer-item::before {
+    width: 3px;
+    height: 14px;
+    right: 11px;
+    top: -13px;
+    position: absolute;
+  }
+}
