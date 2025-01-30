@@ -38,6 +38,7 @@ interface User {
   updatedAt: string;
   __v: number;
   _id: string;
+  avatarUrl:string;
 }
 
 interface SigninValues {
