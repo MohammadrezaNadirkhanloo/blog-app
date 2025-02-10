@@ -13,5 +13,5 @@ export async function getUserApi() {
 }
 
 export async function getAllUsersApi(options: object) {
-  return http.get("/user/list", options).then(({ data }) => data.data);
+  return http.get(`/user/list`, options).then(({ data }) => data.data);
 }

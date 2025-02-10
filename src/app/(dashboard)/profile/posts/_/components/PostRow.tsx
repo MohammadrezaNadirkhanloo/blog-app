@@ -1,6 +1,8 @@
 import Table from "@/ui/Tabel";
 import { toLocalDateShort } from "@/utils/toLocalDateShort";
 import truncateText from "@/utils/trancateText";
+import { DeletePost, UpdatePost } from "./Buttons";
+
 
 interface Author {
   _id: string;
@@ -61,7 +63,7 @@ function PostRow({ post, index }: PostRowProps) {
   const status =
     type && statusStyle[type]
       ? statusStyle[type]
-      : { label: "نامشخص", className: "badge-default" };
+      : { label: "نامشخص", className: "badge" };
 
   return (
     <Table.Row>
@@ -74,11 +76,12 @@ function PostRow({ post, index }: PostRowProps) {
         <span className={`badge ${status.className}`}>{status.label}</span>
       </td>
       <td>
-        ...
-        {/* <div className="flex items-center gap-x-3">
+        <div className="flex items-center gap-x-3">
+
+
           <UpdatePost id={post._id} />
-          <DeletePost id={post._id} postTitle={post.title} />
-        </div> */}
+          <DeletePost id={post._id}  />
+        </div>
       </td>
     </Table.Row>
   );

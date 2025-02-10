@@ -7,7 +7,7 @@ interface TabelProps {
 function Table({ children }: TabelProps) {
   return (
     <div className="overflow-x-auto">
-      <table className="table table-zebra">{children}</table>
+      <table className="table table-zebra ">{children}</table>
     </div>
   );
 }
@@ -16,7 +16,7 @@ export default Table;
 
 function TableHeader({ children }: TabelProps) {
   return (
-    <thead>
+    <thead className="bg-base-100">
       <tr>{children}</tr>
     </thead>
   );

@@ -1,4 +1,3 @@
-import { Post } from "@/utils/types";
 import http from "./httpService";
 
 interface Postsingel {
@@ -13,9 +12,6 @@ interface PostResponse {
   data: { post: Postsingel };
 }
 
-interface PostsResponse {
-  data: { posts: Post[] };
-}
 export async function getPostBySlug(slug: string) {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/post/slug/${slug}`
@@ -26,15 +22,16 @@ export async function getPostBySlug(slug: string) {
   return post;
 }
 
-export async function getPosts(options?: object, query?: string) {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/post/list?${query}`,
-    options
-  );
-  const { data }: PostsResponse = await res.json();
-  const posts = data?.posts || null;
+export async function getPosts(query?: string, options = {}) {
+  // const res = await fetch(
+  //   `${process.env.NEXT_PUBLIC_BASE_URL}/post/list?${query}`,
+  //   options
+  // );
+  // const { data }: PostsResponse = await res.json();
+  // const posts = data?.posts || null;
 
-  return posts;
+  // return posts;
+  return http.get(`/post/list?${query}`, options).then(({ data }) => data.data);
 }
 
 export async function getMenuItem() {

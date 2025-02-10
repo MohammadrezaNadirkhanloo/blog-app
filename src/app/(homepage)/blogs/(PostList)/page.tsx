@@ -12,7 +12,7 @@ async function BlogPage({
   const query = queryString.stringify(await searchParams);
   const cookieStore = await cookies();
   const options = setCookieOnReq(cookieStore);
-  const posts = await getPosts(options, query);
+  const {posts} = await getPosts(options, query);
 
   const { search } = await searchParams;
   return (

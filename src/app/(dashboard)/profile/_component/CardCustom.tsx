@@ -12,7 +12,7 @@ type IconType = keyof typeof iconMap; // "comments" | "users" | "posts"
 
 interface CardCustomProps {
   title: string;
-  value: string;
+  value: number;
   type: IconType; // فقط کلیدهای موجود در iconMap مجاز هستند
 }
 
@@ -20,7 +20,7 @@ function CardCustom({ title, value, type }: CardCustomProps) {
   const Icon = iconMap[type];
 
   return (
-    <div className="rounded-xl bg-secondary-50 p-2 shadow-sm">
+    <div className="rounded-xl bg-base-100 p-2 shadow-sm">
       <div className="flex p-4 text-secondary-600">
         {Icon ? <Icon className="h-5 w-5" /> : null}
         <h3 className="mr-2 text-sm font-medium">{title}</h3>

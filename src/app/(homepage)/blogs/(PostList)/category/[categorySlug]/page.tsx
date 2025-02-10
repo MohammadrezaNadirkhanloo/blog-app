@@ -1,8 +1,8 @@
-import PostList from "@/app/blogs/_components/PostList";
 import { getPosts } from "@/services/postService";
 import setCookieOnReq from "@/utils/setCookieOnReq";
 import { cookies } from "next/headers";
 import queryString from "query-string";
+import PostList from "../../../_components/PostList";
 
 async function Category({
   params,
@@ -18,7 +18,7 @@ async function Category({
     `categorySlug=${categorySlug}`;
   const cookieStore = await cookies();
   const options = setCookieOnReq(cookieStore);
-  const posts = await getPosts(options, query);
+  const {posts} = await getPosts(options, query);
 
   return (
     <div>

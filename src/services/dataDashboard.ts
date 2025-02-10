@@ -1,3 +1,5 @@
+"use server";
+
 import setCookieOnReq from "@/utils/setCookieOnReq";
 import { cookies } from "next/headers";
 import { getAllUsersApi } from "./authService";
@@ -5,14 +7,14 @@ import { getAllComments } from "./commentService";
 import { getPosts } from "./postService";
 
 export default async function fetchDataCardDashboard() {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const options = setCookieOnReq(cookieStore);
 
   try {
     const data = await Promise.all([
       getAllUsersApi(options),
-      getAllComments(options),
       getPosts(),
+      getAllComments(options),
     ]);
 
     const numberOfUsers = Number(data[0].users.length ?? "0");
@@ -24,8 +26,8 @@ export default async function fetchDataCardDashboard() {
       numberOfUsers,
       numberOfComments,
     };
-  } catch (error) {
-    console.error("خطا", error.response.data.message);
-    throw new Error("خطا در بارگذاری اطلاعات");
+  } catch (error: unknown) {
+    console.error("❌ خطا در پردازش داده‌ها:", error);
+    // throw new Error("⚠️ خطا در بارگذاری اطلاعات");
   }
 }

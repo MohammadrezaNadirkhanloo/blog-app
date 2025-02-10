@@ -2,9 +2,9 @@ import { getPosts } from "@/services/postService";
 import Table from "@/ui/Tabel";
 import PostRow from "./PostRow";
 
-export default async function PostsTable() {
-  const posts = await getPosts();
-
+export default async function PostsTable({ query = "" }) {  
+  const { posts } = await getPosts(query);
+  
   if (!posts.length) return <p>پست نی</p>;
   return (
     <Table>
