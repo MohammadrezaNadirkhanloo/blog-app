@@ -3,7 +3,6 @@ import { toLocalDateShort } from "@/utils/toLocalDateShort";
 import truncateText from "@/utils/trancateText";
 import { DeletePost, UpdatePost } from "./Buttons";
 
-
 interface Author {
   _id: string;
   name: string;
@@ -17,7 +16,7 @@ interface Category {
   slug: string | undefined;
 }
 
-interface Post {
+export interface Post {
   _id?: string;
   id?: string;
   title?: string;
@@ -76,11 +75,9 @@ function PostRow({ post, index }: PostRowProps) {
         <span className={`badge ${status.className}`}>{status.label}</span>
       </td>
       <td>
-        <div className="flex items-center gap-x-3">
-
-
+        <div className="flex items-center gap-x-1">
           <UpdatePost id={post._id} />
-          <DeletePost id={post._id}  />
+          <DeletePost id={post._id} />
         </div>
       </td>
     </Table.Row>
